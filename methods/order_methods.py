@@ -19,17 +19,7 @@ class OrderMethods:
         try:
             return response.json(), response.status_code
         except:
-            return response.text, response.status_code
-        
-    @allure.step('Отменить заказ')
-    def cancel_order(self, params):
-        response = requests.put(
-            self.url+'cancel', data=params
-        )
-        try:
-            return response.json(), response.status_code
-        except:
-            return response.text, response.status_code
+            return response.text, response.status_code     
         
     @allure.step('Получить список заказов')
     def get_order_list(self, params=None):
