@@ -11,4 +11,5 @@ class TestOrderCreate:
     @pytest.mark.parametrize("color", color_data)
     def test_creating_order_full_data_success(self, color):
         create_json, create_status = OrderMethods().create_order(color=color)
-        assert create_json['track'] and create_status == 201
+        assert create_json['track'] 
+        assert create_status == 201
