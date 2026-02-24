@@ -11,19 +11,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         run: docker build -t my-tests .
 
       - name: Run tests
-        run: docker run --rm my-tests
-
-      - name: Run tests
         run: docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results my-tests
 
       - name: Upload Allure results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
+          if-no-files-found: error
