@@ -1,0 +1,20 @@
+name: Run tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t my-tests .
+
+      - name: Run tests
+        run: docker run --rm my-tests
