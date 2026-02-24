@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Команда запуска тестов
-CMD ["pytest", "-v", "--alluredir=allure-results", "allure serve allure_results"]
+CMD ["pytest", "-v", "--alluredir=allure-results"]
